@@ -13,6 +13,6 @@
   },
   "scripts": {
     "start": "backpack",
-    "build": "backpack build"
+    "build": "yarn docs && backpack build"
   }
 }
