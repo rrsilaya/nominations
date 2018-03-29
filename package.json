@@ -13,6 +13,14 @@
   },
   "scripts": {
     "start": "backpack",
-    "build": "yarn docs && backpack build"
+    "build": "yarn docs && backpack build",
+    "docs": "apidoc -i ./src -o ./docs"
+  },
+  "engines": {
+    "node": "9.5.0"
+  },
+  "apidoc": {
+    "title": "Nominations System API",
+    "version": "1.0.0"
   }
 }

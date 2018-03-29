@@ -5,6 +5,7 @@ import { getErrors } from '../../utils';
  * @api {get} /nomination
  * @apiGroup Nomination
  * @apiName getNominations
+ * @apiDescription Get all nominations
  *
  * @apiParam (Query Params) {String} [position] Nomination position
  *
@@ -40,7 +41,6 @@ import { getErrors } from '../../utils';
  * @apiError (Error 500) {String[]} errors List of errors
  * @apiError (Error 500) {String} errors.message Error message
  */
-
 export const getNominations = async (req, res) => {
   try {
     const nominations = await Nomination.find(req.params);
@@ -55,6 +55,39 @@ export const getNominations = async (req, res) => {
   }
 }
 
+/**
+ * @api {post} /nomination addNomination
+ * @apiGroup Nomination
+ * @apiName addNomination
+ * @apiDescription Add a nomination
+ *
+ * @apiParam (Body Params) {String} nominee Name of nominee
+ * @apiParam (Body Params) {String} position Position being nominated to
+ * @apiParam (Body Params) {String} [name] Name of person who nominated
+ *
+ * @apiSuccess {Integer} status
+ * @apiSuccess {String} message
+ * @apiSuccess {Object} data
+ * @apiSuccess {String} data._id ID of nomination
+ * @apiSuccess {String} data.nominee Name of nominee
+ * @apiSuccess {String} data.name Name of person who nominated
+ *
+ * @apiSuccessExample {json} Success-Response:
+ * HTTP/1.1 200 OK
+ * {
+ *   "status": 200,
+ *   "message": "Successfully added new nomination",
+ *   "data": {
+ *     "_id": "5a800cffafc3fd4a438b76d9",
+ *     "nominee": "Harold Roxas",
+ *     "position": "CEO",
+ *     "name": "Erlen Evangelista"
+ *   }
+ * }
+ * 
+ * @apiError (Error 500) {String[]} errors List of errors
+ * @apiError (Error 500) {String} errors.message Error message
+ */
 export const addNomination = async (req, res) => {
   try {
     const { nominee, position } = req.body;
@@ -75,6 +108,28 @@ export const addNomination = async (req, res) => {
     res.status(500).json({ errors: getErrors(err) });
   }
 }
+
+/**
+ * @api {delete} /nomination/:_id removeNomination
+ * @apiGroup Nomination
+ * @apiName removeNomination
+ * @apiDescription Remove a nomination
+ *
+ * @apiParam (URL Params) {String} _id ID of nomination
+ *
+ * @apiSuccess {Integer} status
+ * @apiSuccess {String} message
+ *
+ * @apiSuccessExample {json} Success-Response:
+ * HTTP/1.1 200 OK
+ * {
+ *   "status": 200,
+ *   "message": "Successfully removed nomination"
+ * }
+ *
+ * @apiError (Error 500) {String[]} errors List of errors
+ * @apiError (Error 500) {String} errors.message Error message
+ */
 
 export const removeNomination = async (req, res) => {
   try {
