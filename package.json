@@ -12,8 +12,8 @@
     "mongoose": "^5.0.11"
   },
   "scripts": {
-    "start": "USER=yses PASSWORD=yses backpack",
-    "build": "yarn docs && backpack build",
+    "start": "yarn docs && USER=yses PASSWORD=yses backpack",
+    "build": "backpack build",
     "docs": "apidoc -i ./src -o ./docs"
   },
   "engines": {
