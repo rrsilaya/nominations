@@ -10,7 +10,8 @@ import { getErrors } from '../../utils';
  * @apiSuccess {Integer} status
  * @apiSuccess {String} message
  * @apiSuccess {Object[]} data
- * @apiSuccess {String} name name of member
+ * @apiSuccess {String} data.name name of member
+ * @apiSuccess {String} data.photo link for photo
  *
  * @apiSuccessExample {json} Success-Response:
  * HTTP/1.1 200 OK
@@ -20,11 +21,13 @@ import { getErrors } from '../../utils';
  *   "data": [
  *     {
  *       "_id": "5a800cffafc3fd4a438b76d9",
- *       "name": "Harold Roxas"
+ *       "name": "Harold Roxas",
+ *       "photo": "/public/roxas.jpg"
  *     },
  *     {
  *       "_id": "5a800cffafc3fd4a438b76d8",
- *       "name": "Erlen Evangelista"
+ *       "name": "Erlen Evangelista",
+ *       "photo": "/public/evangelista.jpg"
  *     }
  *   ]
  * }
@@ -58,6 +61,7 @@ export const getMembers = async (req, res) => {
  * @apiSuccess {String} message
  * @apiSuccess {Object} data
  * @apiSuccess {String} data.name Name of member
+ * @apiSuccess {String} data.photo link for photo
  *
  * @apiSuccessExample {json} Success-Response:
  * HTTP/1.1 200 OK
@@ -67,6 +71,7 @@ export const getMembers = async (req, res) => {
  *   "data": {
  *     "_id": "5a800cffafc3fd4a438b76d9",
  *     "name": "Harold Roxas"
+ *       "photo": "/public/roxas.jpg"
  *   }
  * }
  *

@@ -6,6 +6,10 @@ const memberSchema = new Schema({
   name: {
     type: String,
     required: [ true, 'Missing name field.' ]
+  },
+  photo: {
+    type: String,
+    required: [ true, 'Missing photo attachment' ]
   }
 });
 
