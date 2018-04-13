@@ -81,6 +81,7 @@ export const getMembers = async (req, res) => {
 export const addMember = async (req, res) => {
   try {
     const member = new Member(req.body);
+    await member.save();
 
     res.status(200).json({
       status: 200,
