@@ -43,7 +43,7 @@ import { getErrors } from '../../utils';
  */
 export const getNominations = async (req, res) => {
   try {
-    const nominations = await Nomination.find(req.params);
+    const nominations = await Nomination.find(req.query);
 
     res.status(200).json({
       status: 200,
