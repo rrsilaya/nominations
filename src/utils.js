@@ -1,9 +1,8 @@
 export const getErrors = err => {
-  const errors = [];
+  /**
+   * Given an error object `err`, maps down all of the error messages
+   * into a single array.
+   */
 
-  for (let key in err.errors) {
-    errors.push(err.errors[key].message);
-  }
-
-  return errors;
+  return Object.entries(err.errors).map(([, error]) => error);
 }
