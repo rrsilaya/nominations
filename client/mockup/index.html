@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nominations System</title>
+    <link rel="stylesheet" href="./index.css" type="text/css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="navigator">
+        <select>
+          <option value="" disabled>Select Option</option>
+          <option value="">Chief Executive Officer</option>
+          <option value="">Deputy Chief Executive Officer</option>
+          <option value="">Liaison Officer</option>
+        </select>
+        <nav>
+          <a class="view active" href="./index.html">View</a>
+          <a class="form" href="./nomination.html">Form</a>
+        </nav>
+      </div>
+      <div class="nominations">
+        <div class="nominee">
+          <div class="member" style="background-image: url('./images/abasolo.jpg')"></div>
+          <span>Abasolo</span>
+        </div>
+        <div class="nominee">
+          <div class="member" style="background-image: url('./images/afable.jpg')"></div>
+          <span>Afable</span>
+        </div>
+        <div class="nominee">
+          <div class="member" style="background-image: url('./images/arquilita.jpg')"></div>
+          <span>Arquilita</span>
+        </div>
+        <div class="nominee">
+          <div class="member" style="background-image: url('./images/basillio.jpg')"></div>
+          <span>Basillio</span>
+        </div>
+        <div class="nominee">
+          <div class="member" style="background-image: url('./images/bautista.jpg')"></div>
+          <span>Bautista</span>
+        </div>
+        <div class="nominee">
+          <div class="member" style="background-image: url('./images/benavidez.jpg')"></div>
+          <span>Benavidez</span>
+        </div>
+      </div>
+      <h1 class="position">Chief Executive Officer</h1>
+    </div>
+
+    <script>
+      /**
+       * Do not include this in your react app.
+       */
+      const nominees = document.querySelectorAll('.nominee');
+
+      nominees.forEach(nominee => {
+        nominee.addEventListener('click', () => {
+          confirm('Are you sure you want to remove this nomination?');
+        });
+      });
+    </script>
+  </body>
+</html>

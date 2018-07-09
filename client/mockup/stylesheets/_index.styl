@@ -1,0 +1,220 @@
+$first = #3EB39D;
+$second = #E37A3E;
+$third = #324D5C;
+$container = lighten(#000, 15%);
+
+$white = #FFF;
+
+@font-face { font-family: "Tremblant"; src: url('./stylesheets/tremblant.woff'); }
+@font-face { font-family: "Dosis"; src: url('./stylesheets/dosis.otf'); }
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  background: linear-gradient($first, $second);
+  height: 100vh;
+  color: white;
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: "Tremblant", "Arial", "sans-serif";
+  text-transform: lowercase;
+  margin: 0;
+  margin-top: 1em;
+}
+
+h1.position {
+  background-color: $container;
+  padding: 20px 20px 15px 20px;
+  max-width: 60%;
+  text-align: center;
+  position: relative;
+  word-spacing: -7px;
+  
+  &::after {
+    background-image: url('./stylesheets/flower.svg');
+    background-size: contain;
+    height: 64px;
+    width: 64px;
+    display: inline-block;
+    position: absolute;
+    content: '';
+    
+    bottom: -16px;
+    right: -32px;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  
+  background-image: url('./stylesheets/dots.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+  &::before {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    content: '';
+    height: 400px; width: 120px;
+    
+    background-image: url('./stylesheets/triangles.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    transform: rotate(180deg);
+  }
+}
+
+.nominations {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 90%;
+}
+
+.nominee {
+  margin: 10px;
+  border: 1px solid $white;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s all ease;
+  
+  &:hover {
+    transform: scale(1.1);
+  }
+  
+  & > span {
+    display: inline-block;
+    position: absolute;
+    text-align: center;
+    font-family: "Dosis", "Arial", sans-serif;
+    text-transform: uppercase;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-25%);
+    
+    background-color: $third;
+    padding: 3px 0.5em;
+    font-size: 18px;
+  }
+}
+
+.member {
+  height: 148px;
+  width: 148px;
+  background-size: 110%;
+  background-position: center;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.navigator {  
+  & > select {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+
+    background-color: $container;
+    color: white;
+    outline: none;
+    border: none;
+    padding: 10px 15px;
+    font-family: "Dosis", "Arial", sans-serif;
+  }
+  
+  & > nav {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    
+    border: 2px solid $container;
+    
+    a {
+      color: $container;
+      text-decoration: none;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-family: "Dosis", "Arial", sans-serif;
+      width: 80px;
+      padding: 5px 0;
+      text-align: center;
+      display: inline-block;
+      position: relative;
+      
+      &.active {
+        background-color: $container;
+        color: $white;
+        
+        &.view:after {
+          content: '';
+          background-color: $container;
+          width: 20px;
+          top: 0;
+          right: -10px;
+          height: 31px;
+          position: absolute;
+          display: inline-block;
+          transform: skew(-15deg);
+        }
+        
+        &.form:before {
+          content: '';
+          background-color: $container;
+          width: 20px;
+          top: 0;
+          left: -10px;
+          height: 31px;
+          position: absolute;
+          display: inline-block;
+          transform: skew(-15deg);
+        }
+      }
+    }
+  }
+}
+
+form.nomination-form {
+  width: 40%;
+  
+  & > * {
+    font-family: "Dosis", "Arial", sans-serif;
+  }
+  
+  select,
+  input {
+    font-size: 24px;
+    width: 100%;
+    padding: 10px 25px;
+    background-color: $container;
+    color: $white;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    margin-bottom: 1.5em;
+  }
+  
+  button {
+    margin: auto;
+    display: block;
+    cursor: pointer;
+    background-color: $container;
+    color: $white;
+    border: none;
+    padding: 8px 35px;
+    font-size: 24px;
+    border-radius: 50px;
+  }
+}

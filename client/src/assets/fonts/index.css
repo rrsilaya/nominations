@@ -1,0 +1,13 @@
+/**
+ * Font family declarations
+ */
+
+@font-face {
+  font-family: 'Dosis';
+  src: url('./dosis.otf');
+}
+
+@font-face {
+  font-family: 'Tremblant';
+  src: url('./tremblant.woff');
+}
